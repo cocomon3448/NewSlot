@@ -48,7 +48,7 @@ public final class LoadMain extends JavaPlugin implements Listener {
             List<Player> list = new ArrayList<>(Bukkit.getOnlinePlayers());
             if(sender.isOp()) {
                 if(sender instanceof Player) {
-                    for(int j = 0; j < list.size(); j++) {
+                    for(int j = 0; j <= list.size(); j++) {
                         Player player = list.get(j);
                         for (int i = 1; i < 36; i++) {
                             player.getInventory().setItem(i, new ItemStack(Material.BARRIER, 1));

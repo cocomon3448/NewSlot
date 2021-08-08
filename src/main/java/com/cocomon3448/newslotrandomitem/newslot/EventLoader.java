@@ -1,5 +1,6 @@
 package com.cocomon3448.newslotrandomitem.newslot;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -11,6 +12,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class EventLoader implements Listener {
@@ -39,7 +43,11 @@ public class EventLoader implements Listener {
             int getIndex = check_int(materialsLst, e.getBlock().getType());
             if(p.getInventory().getItem(getIndex+1).equals(new ItemStack(Material.BARRIER))) {
                 p.getInventory().setItem(getIndex+1, new ItemStack(Material.GOLDEN_APPLE, 1));
-                p.sendMessage(ChatColor.RED+p.getName()+ChatColor.GRAY+"님이 "+ChatColor.GOLD + "MINECRAFT:" +materialsLst[getIndex].toString()+ChatColor.GRAY+" 블럭을 파괴하여 인벤토리 한 칸이 잠금해제 되었습니다!");
+                List<Player> list = new ArrayList<>(Bukkit.getOnlinePlayers());
+                for(int i = 0; i<=list.size(); i++) {
+                    Player player = list.get(i);
+                    player.sendMessage(ChatColor.RED+p.getName()+ChatColor.GRAY+"님이 "+ChatColor.GOLD + "MINECRAFT:" +materialsLst[getIndex].toString()+ChatColor.GRAY+" 블럭을 파괴하여 인벤토리 한 칸이 잠금해제 되었습니다!");
+                }
             }
         }
         if(check(armorSlot,e.getBlock().getType())) {
@@ -47,7 +55,12 @@ public class EventLoader implements Listener {
             int getIndex = check_int(armorSlot, e.getBlock().getType());
             if(p.getInventory().getItem(getIndex+36).equals(new ItemStack(Material.BARRIER))) {
                 p.getInventory().setItem(getIndex+36, new ItemStack(Material.GOLDEN_APPLE, 1));
-                p.sendMessage(ChatColor.RED+p.getName()+"님이 "+ChatColor.GOLD + "MINECRAFT:" +armorSlot[getIndex].toString()+ChatColor.GRAY+" 블럭을 파괴하여 인벤토리 한 칸이 잠금해제 되었습니다!");
+                List<Player> list = new ArrayList<>(Bukkit.getOnlinePlayers());
+                for(int i = 0; i<=list.size(); i++) {
+                    Player player = list.get(i);
+                    player.sendMessage(ChatColor.RED+p.getName()+"님이 "+ChatColor.GOLD + "MINECRAFT:" +armorSlot[getIndex].toString()+ChatColor.GRAY+" 블럭을 파괴하여 인벤토리 한 칸이 잠금해제 되었습니다!");
+                }
+
             }
         }
         if(check(leftHandSlot,e.getBlock().getType())) {
@@ -55,7 +68,11 @@ public class EventLoader implements Listener {
             int getIndex = check_int(leftHandSlot, e.getBlock().getType());
             if(p.getInventory().getItem(getIndex+40).equals(new ItemStack(Material.BARRIER))) {
                 p.getInventory().setItem(getIndex+40, new ItemStack(Material.GOLDEN_APPLE, 1));
-                p.sendMessage(ChatColor.RED+p.getName()+"님이 "+ChatColor.GOLD + "MINECRAFT:" +leftHandSlot[getIndex].toString()+ChatColor.GRAY+" 블럭을 파괴하여 인벤토리 한 칸이 잠금해제 되었습니다!");
+                List<Player> list = new ArrayList<>(Bukkit.getOnlinePlayers());
+                for(int i = 0; i<=list.size(); i++) {
+                    Player player = list.get(i);
+                    player.sendMessage(ChatColor.RED+p.getName()+"님이 "+ChatColor.GOLD + "MINECRAFT:" +leftHandSlot[getIndex].toString()+ChatColor.GRAY+" 블럭을 파괴하여 인벤토리 한 칸이 잠금해제 되었습니다!");
+                }
             }
         }
     }
