@@ -9,6 +9,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 
 
@@ -60,6 +61,13 @@ public class EventLoader implements Listener {
     }
 
     @EventHandler
+    public void onSwitch(PlayerSwapHandItemsEvent e) {
+        if(e.getMainHandItem().equals(new ItemStack(Material.BARRIER)) || e.getOffHandItem().equals(new ItemStack(Material.BARRIER))) {
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
     public void onDrop(PlayerDropItemEvent e) {
 
         if(e.getItemDrop().getItemStack().getType() == Material.BARRIER)
@@ -76,6 +84,7 @@ public class EventLoader implements Listener {
             e.setCancelled(true);
         }
     }
+
     @EventHandler
     public void blockPlace(BlockPlaceEvent e) {
         if(e.getBlock().getType() == Material.BARRIER) {
