@@ -32,6 +32,10 @@ public final class LoadMain extends JavaPlugin implements Listener {
                 for(int i = 1; i<36; i++) {
                     player.getInventory().setItem(i, new ItemStack(Material.BARRIER, 1));
                 }
+                for(int i = 36; i<40; i++) {
+                    player.getInventory().setItem(i, new ItemStack(Material.BARRIER, 1));
+                }
+                player.getInventory().setItem(40, new ItemStack(Material.BARRIER, 1));
                 return false;
             }
             sender.sendMessage("플레이어가 쳐주셔야됩니다.");
