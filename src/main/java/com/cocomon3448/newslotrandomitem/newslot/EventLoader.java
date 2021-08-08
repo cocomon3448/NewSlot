@@ -69,26 +69,29 @@ public class EventLoader implements Listener {
 
     @EventHandler
     public void onDrop(PlayerDropItemEvent e) {
-
-        if(e.getItemDrop().getItemStack().getType() == Material.BARRIER)
-        {
-            e.setCancelled(true);
+        if(e.getItemDrop().getItemStack().getType() != null) {
+            if(e.getItemDrop().getItemStack().getType() == Material.BARRIER)
+            {
+                e.setCancelled(true);
+            }
         }
-
     }
 
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent e) {
-
-        if (e.getCurrentItem().getType() == Material.BARRIER) {
-            e.setCancelled(true);
+        if(e.getCurrentItem().getType() != null) {
+            if (e.getCurrentItem().getType() == Material.BARRIER) {
+                e.setCancelled(true);
+            }
         }
     }
 
     @EventHandler
     public void blockPlace(BlockPlaceEvent e) {
-        if(e.getBlock().getType() == Material.BARRIER) {
-            e.setCancelled(true);
+        if(e.getBlock().getType() != null) {
+            if (e.getBlock().getType() == Material.BARRIER) {
+                e.setCancelled(true);
+            }
         }
     }
 

@@ -7,3 +7,5 @@ commands:
     description: "none"
   resetplayer:
     description: "none"
+  resetallplayers:
+    description: "none"
