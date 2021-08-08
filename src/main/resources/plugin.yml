@@ -1,0 +1,9 @@
+name: NewSlotRandomItem
+version: ${project.version}
+main: com.cocomon3448.newslotrandomitem.newslot.LoadMain
+api-version: 1.17
+commands:
+  minseokbabo:
+    description: "none"
+  resetplayer:
+    description: "none"
